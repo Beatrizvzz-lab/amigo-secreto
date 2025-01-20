@@ -1,39 +1,32 @@
 
 let amigos = [];
 
-function adicionarAmigo(){
-    document.querySelector('button-add');
-    let nome = document.getElementById('amigo').value;
-    if(nome){
-      amigos.push(nome); 
-      alert('O nome foi adicionado!')
-      atualizarLista();
-      limparCampo();
-    }else{
-        alert ('Por favor, adicione um nome válido!')
-    }
-};
-
-function limparCampo() {
-    amigos = document.querySelector('#amigo');
-    amigos.value = '';
-}
-
-function atualizarLista() {
-    const lista = document.getElementById('listaAmigos');
-    lista.innerHTML = "";
-    for (let amigo of amigos) {
-        lista.innerHTML += `<li>${amigo}</li>`;
-    }
-}
-
-function sortearAmigo(){
-    if (amigos.length > 0){
-        let sorteio = amigos[Math.floor(Math.random() * amigos.length)];
-        document.getElementById('resultado').innerHTML = `O nome sorteado foi ${sorteio}`;
-    }else {
-        alert('Adicione pelo menos um nome antes de sortear!');
-    }
-    
-};
-
+        
+        function adicionarAmigo() {
+            let nome = document.getElementById('amigo').value;
+            if(nome === "") {
+                alert('Por favor, insira um nome.');
+                return;
+            }
+            amigos.push(nome); 
+            document.getElementById('amigo').value = '';
+            atualizarLista();
+        }
+        function atualizarLista() {
+            const lista = document.getElementById('listaAmigos');
+            lista.innerHTML = ""; 
+            amigos.forEach(amigo => {
+                const li = document.createElement('li');
+                li.textContent = amigo;
+                lista.appendChild(li);
+            });
+        }
+        function sortearAmigo() {
+            if (amigos.length > 0) {
+                const indiceAleatorio = Math.floor(Math.random() * amigos.length);
+                const sorteado = amigos[indiceAleatorio];
+                document.getElementById('resultado').innerHTML = `O nome sorteado foi: ${sorteado}`;
+            } else {
+                alert('Adicione pelo menos um nome antes de sortear!');
+            }
+        }
