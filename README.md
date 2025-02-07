@@ -16,7 +16,7 @@ Este projeto permite que você organize um sorteio de amigo secreto, onde os par
 
 ## Como Usar
 
-1. **Abra o arquivo `index.html`** no seu navegador.
+1. **Abra o arquivo `index.html`** no seu navegador com live server.
 2. **Digite o nome** de um participante no campo de entrada.
 3. **Clique no botão "Adicionar"** para adicionar o nome à lista.
 4. **Clique no botão "Sortear amigo"** para realizar o sorteio.
